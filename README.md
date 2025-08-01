@@ -1,59 +1,47 @@
-# AngularMapsApp
+# MapboxApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+<!-- Aquí puedes colocar tu logo -->
 
-## Development server
+![Logo](public/logo.svg)
 
-To start a local development server, run:
+## Descripción
 
-```bash
-ng serve
-```
+MapboxApp es una aplicación web desarrollada con Angular que utiliza **Mapbox GL JS** para renderizar mapas interactivos. El proyecto sirve como ejemplo práctico del uso de mapas en Angular, incluyendo integración con marcadores, navegación, y vistas personalizadas.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+La app está compuesta por tres páginas principales:
 
-## Code scaffolding
+- 🌍 **Mapa de pantalla completa:** Muestra un mapa ocupando toda la pantalla.
+- 📍 **Mapa con marcadores:** Permite añadir, centrar y eliminar marcadores en el mapa.
+- 🗂️ **Múltiples mapas en tarjetas:** Renderiza varias tarjetas, cada una con su propio mapa independiente.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Tecnologías y librerías utilizadas
 
-```bash
-ng generate component component-name
-```
+- **Angular** – Framework principal.
+- **Mapbox GL JS** – Motor de mapas interactivos.
+- **TailwindCSS** – Estilos modernos y responsivos.
+- **DaisyUI** – Componentes estilizados sobre Tailwind.
+- **RxJS** – Programación reactiva.
+- **Netlify** – Hosting y despliegue continuo.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Consulta más dependencias en el archivo `package.json`.
 
-```bash
-ng generate --help
-```
+## Despliegue
 
-## Building
+La aplicación está desplegada en Netlify:
 
-To build the project run:
+- **URL de producción:** [Mapa en Producción](https://angular-maps-danneir.netlify.app/) <!-- Cambia este link si usas otro nombre -->
 
-```bash
-ng build
-```
+### Estado del despliegue
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ae9f1bba-bb8c-488c-80ac-1ae1f4b1cf2b/deploy-status)](https://app.netlify.com/projects/angular-maps-danneir/deploys)
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## ¿Cómo ejecutar el proyecto?
 
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+1. Instala las dependencias:
 
 ```bash
-ng e2e
+npm install
+npm start
 ```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

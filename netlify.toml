@@ -1,7 +1,3 @@
-[build]
-  command = "ng build --configuration production"
-  publish = "dist/angular-maps-app/browser"
-
 [[redirects]]
   from = "/*"
   to = "/index.html"
