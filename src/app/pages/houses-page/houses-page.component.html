@@ -1,0 +1,30 @@
+<main class="container mx-auto">
+  <section class="py-2">
+    <h2 class="text-3xl font-bold mb-2">Houses</h2>
+    <h3 class="text-xl text-gray-500 mb-2">
+      {{ houses().length }} casas disponibles
+    </h3>
+  </section>
+
+  <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2">
+    @for (house of houses(); track house.id) {
+    <div class="card bg-base-100 shadow-sm">
+      <app-mini-map [center]="house.lngLat" [marker]="true"></app-mini-map>
+      <div class="card-body">
+        <h2 class="card-title">
+          {{ house.name }}
+          <div class="badge badge-secondary">NEW</div>
+        </h2>
+        <p>
+          {{ house.description }}
+        </p>
+        <div class="card-actions justify-end">
+          @for (tag of house.tags; track $index) {
+          <div class="badge badge-outline">{{ tag }}</div>
+          }
+        </div>
+      </div>
+    </div>
+    }
+  </section>
+</main>

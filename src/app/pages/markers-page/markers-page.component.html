@@ -1,0 +1,94 @@
+<main class="w-screen h-[calc(100vh-64px)] p-2">
+  <!-- Sección de marcadores -->
+  <section
+    class="card card-compact bg-base-200/90 backdrop-blur-sm shadow-lg z-50 fixed bottom-0 left-0 w-full max-h-72 md:w-72 md:fixed md:top-20 md:left-5 rounded-t-2xl md:rounded-2xl md:max-h-64 overflow-y-auto"
+  >
+    <div class="card-body p-3 md:p-4">
+      <div class="card-title justify-center py-2">
+        <h2 class="flex gap-2 items-center text-lg font-semibold">
+          <i class="ph-map-pin"></i>
+          Marcadores:
+          <span class="badge badge-primary">{{ markers().length }}</span>
+        </h2>
+      </div>
+
+      <ul class="space-y-2">
+        @for (marker of markers(); track marker.id; let i = $index) {
+        <li
+          class="flex items-center gap-3 p-3 bg-base-100 rounded-xl hover:bg-base-300 transition-colors"
+        >
+          <!-- Ícono -->
+          <div class="text-primary flex-shrink-0">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4s4-1.79 4-4s-1.79-4-4-4m8.94 3A8.994 8.994 0 0 0 13 3.06V1h-2v2.06A8.994 8.994 0 0 0 3.06 11H1v2h2.06A8.994 8.994 0 0 0 11 20.94V23h2v-2.06A8.994 8.994 0 0 0 20.94 13H23v-2zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7s7 3.13 7 7s-3.13 7-7 7"
+              />
+            </svg>
+          </div>
+
+          <!-- Información -->
+          <div class="flex-1 min-w-0">
+            <h3 class="font-medium truncate">Marcador {{ i + 1 }}</h3>
+            <p class="text-xs text-base-content/60 truncate">
+              Lat: {{ marker.data.getLngLat().lat | number : "1.0-3" }} Lng:
+              {{ marker.data.getLngLat().lng | number : "1.0-3" }}
+            </p>
+          </div>
+
+          <!-- Botones de acción -->
+          <div class="flex gap-1">
+            <button
+              class="btn btn-ghost btn-square btn-xs sm:btn-sm"
+              (click)="flyToMarker(marker.data)"
+              title="Centrar en mapa"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98z"
+                />
+              </svg>
+            </button>
+
+            <button
+              class="btn btn-outline btn-error btn-square btn-xs sm:btn-sm"
+              (click)="deleteMarker(marker)"
+              title="Eliminar"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="currentColor"
+                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"
+                />
+              </svg>
+            </button>
+          </div>
+        </li>
+        } @empty {
+        <li class="text-center py-4 text-base-content/60">
+          <i class="ph-warning-circle"></i> No hay marcadores
+        </li>
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- Mapa -->
+  <section
+    #map
+    class="w-full h-full rounded-xl md:rounded-2xl shadow"
+  ></section>
+</main>

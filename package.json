@@ -3,10 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "prestart": "npm run set-envs",
     "start": "ng serve",
+    "prebuild": "npm run set-prod",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "set-envs": "node ./scripts/set-envs.js",
+    "set-prod": "node ./scripts/set-prod.js"
   },
   "private": true,
   "dependencies": {
@@ -17,8 +21,16 @@
     "@angular/platform-browser": "^19.2.0",
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
+    "@tailwindcss/postcss": "^4.1.11",
+    "@types/mapbox-gl": "^3.4.1",
+    "daisyui": "^5.0.50",
+    "mapbox-gl": "^3.14.0",
+    "ngx-mapbox-gl": "^12.0.0",
+    "postcss": "^8.5.6",
     "rxjs": "~7.8.0",
+    "tailwindcss": "^4.1.11",
     "tslib": "^2.3.0",
+    "uuid": "^11.1.0",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
@@ -26,6 +38,7 @@
     "@angular/cli": "^19.2.15",
     "@angular/compiler-cli": "^19.2.0",
     "@types/jasmine": "~5.1.0",
+    "dotenv": "^17.2.1",
     "jasmine-core": "~5.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
