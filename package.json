@@ -5,10 +5,12 @@
     "ng": "ng",
     "prestart": "npm run set-envs",
     "start": "ng serve",
+    "prebuild": "npm run set-prod",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "set-envs": "node ./scripts/set-envs.js"
+    "set-envs": "node ./scripts/set-envs.js",
+    "set-prod": "node ./scripts/set-prod.js"
   },
   "private": true,
   "dependencies": {
