@@ -3,7 +3,7 @@ const path = require("path");
 const yaml = require("js-yaml");
 const { execSync } = require("child_process");
 
-const TEMPLATE_PATH = path.join(".env.yaml");
+const TEMPLATE_PATH = path.join(".env.template.yaml");
 const ENV_DIR = path.join("src", "environments");
 
 if (!fs.existsSync(TEMPLATE_PATH)) {
