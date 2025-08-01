@@ -1,5 +1,13 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
+# environment
+.env
+.env.test
+.env.prod
+.env.yaml
+
+environment.*
+
 # Compiled output
 /dist
 /tmp
