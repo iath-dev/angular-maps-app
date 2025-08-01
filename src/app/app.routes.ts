@@ -4,7 +4,7 @@ export const routes: Routes = [
   {
     path: 'markers',
     loadComponent: () =>
-      import('@app/pages/markers-page/markers-page.component').then(
+      import('./pages/markers-page/markers-page.component').then(
         (m) => m.MarkersPageComponent
       ),
     title: 'Marcadores',
@@ -12,7 +12,7 @@ export const routes: Routes = [
   {
     path: 'houses',
     loadComponent: () =>
-      import('@app/pages/houses-page/houses-page.component').then(
+      import('./pages/houses-page/houses-page.component').then(
         (m) => m.HousesPageComponent
       ),
     title: 'Casas - Propiedades disponibles',
@@ -20,9 +20,9 @@ export const routes: Routes = [
   {
     path: 'fullscreen',
     loadComponent: () =>
-      import(
-        '@app/pages/fullscreen-map-page/fullscreen-map-page.component'
-      ).then((m) => m.FullscreenMapPageComponent),
+      import('./pages/fullscreen-map-page/fullscreen-map-page.component').then(
+        (m) => m.FullscreenMapPageComponent
+      ),
     title: 'FullScreen Map',
   },
   {

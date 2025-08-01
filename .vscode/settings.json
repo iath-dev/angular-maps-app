@@ -12,5 +12,5 @@
       "skipChangeDetectionOnPush": true
     }
   },
-  "cSpell.words": ["MAPBOX"]
+  "cSpell.words": ["MAPBOX", "mapboxgl"]
 }

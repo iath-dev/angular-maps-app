@@ -1,1 +1,78 @@
-<p>markers-page works!</p>,
+<main class="w-screen h-[calc(100vh-64px)] p-4">
+  <section
+    class="z-50 shadow-xl md:max-h-24 md:w-64 md:border md:rounded-2xl bg-base-200 md:bg-base-200/90 card card-sm md:fixed md:top-20 md:left-5 fixed bottom-0 left-0 w-full max-md:rounded-t-2xl max-md:max-h-[25vh] max-md:overflow-y-auto"
+  >
+    <div class="card-body">
+      <div class="card-title">
+        <h2 class="flex gap-2 items-center justify-center">
+          Markers: <small>{{ markers().length }}</small>
+        </h2>
+      </div>
+      <ul class="list max-h-80 overflow-y-auto">
+        @for (marker of markers(); track marker.id; let i = $index) {
+        <li class="list-row">
+          <div class="flex items-center justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4s4-1.79 4-4s-1.79-4-4-4m8.94 3A8.994 8.994 0 0 0 13 3.06V1h-2v2.06A8.994 8.994 0 0 0 3.06 11H1v2h2.06A8.994 8.994 0 0 0 11 20.94V23h2v-2.06A8.994 8.994 0 0 0 20.94 13H23v-2zM12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7s7 3.13 7 7s-3.13 7-7 7"
+              />
+            </svg>
+          </div>
+          <div class="flex-1 flex flex-col gap-0.5">
+            <h2>
+              Marker <strong>{{ i + 1 }}</strong>
+            </h2>
+            <p class="text-sm text-base-content/70">
+              Lat: {{ marker.data.getLngLat().lat | number : "1.0-3" }}, Lng:
+              {{ marker.data.getLngLat().lng | number : "1.0-3" }}
+            </p>
+          </div>
+          <button
+            class="btn btn-square btn-ghost"
+            (click)="flyToMarker(marker.data)"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98z"
+              />
+            </svg>
+          </button>
+          <button
+            class="btn btn-square btn-error btn-outline"
+            (click)="deleteMarker(marker)"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6zM19 4h-3.5l-1-1h-5l-1 1H5v2h14z"
+              />
+            </svg>
+          </button>
+        </li>
+        } @empty {
+        <li class="list-row">
+          <p class="text-sm">No hay marcadores</p>
+        </li>
+        }
+      </ul>
+    </div>
+  </section>
+  <section #map class="w-full h-full rounded-2xl"></section>
+</main>
